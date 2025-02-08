@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Font-Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Impor script kamu di sini -->
+    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bookshelf App</h1>
+      <p>Setiap Buku adalah Petualangan - Atur Koleksimu Sekarang!</p>
+      <button class="btn" id="btn">Add new book</button>
+    </header>
+
+    <main>
+      <div class="modal">
+        <section class="modal-addBook">
+          <div class="close-modal">
+            <a href="#" id="closeModal"><i class="fa-solid fa-xmark"></i></a>
+          </div>
+          <h2 class="addBook-header">Tambah Buku Baru</h2>
+          <form id="bookForm" data-testid="bookForm" autocomplete="off">
+            <div>
+              <label for="bookFormTitle">Judul</label>
+              <input
+                id="bookFormTitle"
+                type="text"
+                required
+                data-testid="bookFormTitleInput"
+                placeholder="Judul Buku..."
+              />
+            </div>
+            <div>
+              <label for="bookFormAuthor">Penulis</label>
+              <input
+                id="bookFormAuthor"
+                type="text"
+                required
+                data-testid="bookFormAuthorInput"
+                placeholder="Penulis Buku..."
+              />
+            </div>
+            <div>
+              <label for="bookFormYear">Tahun</label>
+              <input
+                id="bookFormYear"
+                type="number"
+                required
+                data-testid="bookFormYearInput"
+                placeholder="Tahun terbit buku..."
+              />
+            </div>
+            <div>
+              <input
+                id="bookFormIsComplete"
+                type="checkbox"
+                data-testid="bookFormIsCompleteCheckbox"
+              />
+              <label for="bookFormIsComplete">Selesai dibaca</label>
+            </div>
+            <button
+              id="bookFormSubmit"
+              type="submit"
+              data-testid="bookFormSubmitButton"
+            >
+              Tambahkan buku ke rak <span>Belum selesai dibaca</span>
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <section class="search-container">
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm" autocomplete="off">
+          <input
+            id="searchBookTitle"
+            type="search"
+            data-testid="searchBookFormTitleInput"
+            placeholder="Cari buku..."
+          />
+          <button
+            id="searchSubmit"
+            type="submit"
+            data-testid="searchBookFormSubmitButton"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <p id="resultSearchBook"><span></span></p>
+      </section>
+
+      <h1 class="header-content-book">Rak Buku</h1>
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <h2>Edit Buku</h2>
+          <label for="editTitle">Judul</label>
+          <input type="text" id="editTitle" />
+
+          <label for="editAuthor">Penulis</label>
+          <input type="text" id="editAuthor" />
+
+          <label for="editYear">Tahun</label>
+          <input type="number" id="editYear" />
+
+          <div class="modal-buttons">
+            <button id="closeEditModal" class="btn">Batal</button>
+            <button id="saveEdit" class="btn">Simpan</button>
+          </div>
+        </div>
+      </div>
+      <div class="content-book">
+        <section>
+          <h2>Belum selesai dibaca</h2>
+
+          <div id="incompleteBookList" data-testid="incompleteBookList">
+            <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          </div>
+        </section>
+
+        <section>
+          <h2>Selesai dibaca</h2>
+
+          <div id="completeBookList" data-testid="completeBookList">
+            <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>&COPY; <span class="year-footer"></span> By Radifka Faza</p>
+      </div>
+    </footer>
+  </body>
+</html>

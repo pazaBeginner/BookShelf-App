@@ -1,0 +1,430 @@
+:root {
+    --font-Primary: "Merriweather", serif;
+    --color-bg: #2C3E50;
+    --color-bg-secondary: #A9A9A9;
+    --color-font-primary: #fefefe;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-secondary);
+    height: 100%;
+}
+
+header {
+    text-align: center;
+    background: url('/assets/images/BgBookHeader.jpg');
+    background-size: cover;
+    filter: brightness(.85);
+    background-position: center;
+    object-fit: cover;
+    padding-block: 5rem;
+    font-family: var(--font-Primary);
+    color: var(--color-font-primary);
+    padding-inline: 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+header p {
+    margin-top: 1rem;
+    letter-spacing: .05rem;
+}
+
+header .btn {
+    padding-inline: .7rem;
+    padding-block: .8rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-bg);
+    color: #fefefe;
+    cursor: pointer;
+}
+
+header .btn:hover {
+    filter: brightness(1.2);
+}
+
+.modal {
+    /* display: flex; */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active-flex {
+    display: flex;
+}
+
+.modal .modal-addBook {
+    max-width: 30rem;
+    min-width: 20rem;
+    background-color: var(--color-bg);
+    color: var(--color-font-primary);
+    padding: 1.5rem 2rem;
+    font-family: var(--font-Primary);
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    position: relative;
+    margin-inline: 2rem;
+}
+
+.modal .modal-addBook .close-modal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: .2rem;
+    margin-right: .2rem;
+}
+
+.modal .modal-addBook .close-modal a .fa-xmark {
+    padding: 5px 7px;
+    background-color: var(--color-font-primary);
+    color: var(--color-bg);
+    border-radius: 50%;
+}
+
+.modal .modal-addBook h2.addBook-header {
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+    font-weight: 400;
+}
+
+.modal .modal-addBook #bookForm {
+    max-width: 400px;
+    width: 90%;
+    min-width: 275px;
+    padding-inline: 20px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.modal .modal-addBook #bookForm div:nth-child(4) {
+    margin-block: 4px;
+}
+
+.modal .modal-addBook #bookForm div label {
+    font-weight: bold;
+    display: block;
+    margin-block: 3px;
+    font-size: .85rem;
+    font-weight: 250;
+}
+
+.modal .modal-addBook #bookForm div input {
+    padding: .25rem .5rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    border: none;
+}
+
+.modal .modal-addBook #bookForm div label[for="bookFormIsComplete"] {
+    display: inline;
+    font-weight: 200;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.modal .modal-addBook #bookForm div input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.modal .modal-addBook #bookForm #bookFormSubmit {
+    padding: .25rem .23rem;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-font-primary);
+    cursor: pointer;
+}
+
+.search-container {
+    width: 60%;
+    max-width: 90rem;
+    min-width: 25rem;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.search-container h2 {
+    font-family: var(--font-Primary);
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.search-container #searchBook #searchBookTitle{
+    /* background-color: #2C3E50; */
+    padding: .4rem .3rem;
+    width: 60%;
+    max-width: 20rem;
+    min-width: 10rem;
+    letter-spacing: 2px;
+    margin-top: .75rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-bg);
+    font-family: var(--font-Primary);
+}
+
+.search-container #searchBook #searchSubmit {
+    padding: .4rem .5rem;
+    border-radius: 4px;
+    color: var(--color-font-primary);
+    background-color: var(--color-bg);
+    cursor: pointer;
+    border: 1px solid var(--color-bg);
+}
+
+.search-container #resultSearchBook {
+    font-family: var(--font-Primary);
+    margin-top: .5rem;
+}
+
+.search-container span {
+    color: var(--color-bg);
+    font-weight: 700;
+}
+
+main {
+    margin-bottom: 1rem;
+}
+
+main .header-content-book {
+    text-align: center;
+    font-family: var(--font-Primary);
+    margin-bottom: 1rem;
+}
+
+#editModal.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 10px;
+    width: 20rem;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+}
+
+.modal-content input {
+    padding: .2rem .3rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-bg);
+}
+
+.modal-content button.btn {
+    padding-inline: .7rem;
+    padding-block: .8rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-bg);
+    color: #fefefe;
+    cursor: pointer;
+}
+
+.modal-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-book {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.content-book section:first-child, 
+.content-book section:last-child {
+    padding: 1rem;
+    background-color: #cdd3d7e1;
+    max-width: 35rem;
+    width: 90%;
+    min-width: 15rem;
+    border-radius: 7px;
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+.content-book section:first-child h2 {
+    color: #800020;
+    font-family: var(--font-Primary);
+    margin-bottom: .5rem;
+}
+
+.content-book section:last-child h2 {
+    color: #538300;
+    font-family: var(--font-Primary);
+    margin-bottom: .5rem;
+}
+
+.content-book section:first-child #incompleteBookList .book-item,
+.content-book section:last-child #completeBookList .book-item  {
+    background-color: #fefefea0;
+    border-radius: 7px;
+    padding: .5rem .75rem;
+    font-family: var(--font-Primary);
+    margin-block: .75rem;
+    padding: .8rem 1rem 1.3rem;
+} 
+
+#incompleteBookList .book-item h3,
+#completeBookList .book-item h3 {
+    margin-block: .5rem;
+}
+
+#incompleteBookList .book-item p span.author,
+#completeBookList .book-item p span.author, 
+#incompleteBookList .book-item p span.year,
+#completeBookList .book-item p span.year {
+    /* color: var(--color-bg); */
+    color: red;
+    font-weight: 700;
+}
+
+.book-item div {
+    margin-top: .75rem;
+    display: flex;
+    column-gap: .75rem;
+}
+
+.book-item div button {
+    background-color: transparent;
+    border: none;
+}
+
+.book-item div button a {
+    font-size: .9rem;
+    color: var(--color-font-primary);
+    padding: 4px 6px;
+    border: 1px solid var(--color-bg);
+    border-radius: 50%;
+}
+
+.content-book section:first-child #incompleteBookList .book-item div button a{
+    background-color: #800020;
+}
+
+.content-book section:last-child #completeBookList .book-item div button a{
+    background-color: #538300;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    font-size: 1.7rem;
+    padding-block: 1.5rem;
+    background-color: var(--color-bg);
+    color: var(--color-font-primary);
+}
+
+
+/* Responsive Tablet */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: .9rem;
+    }
+
+    .modal .modal-addBook {
+        max-width: 20rem;
+    }
+}
+
+@media screen and (max-width: 695px) {
+    .content-book {
+        flex-direction: column;
+        gap: 1.5rem 2rem;
+        align-items: center;
+    }
+}
+
+/* Responsive Handphone */
+@media screen and (max-width: 500px) {
+    header h1 {
+        font-size: 1.5rem;
+        color: #ffffff;
+    }
+
+    header p {
+        font-size: .75rem;
+        
+    }
+
+    header .btn {
+        padding-inline: .6rem;
+        padding-block: .7rem;
+        font-size: .7rem;
+    }
+
+    .modal .modal-addBook .close-modal a .fa-xmark {
+        padding: 4px 6px;
+    }
+
+    .modal .modal-addBook h2.addBook-header {
+        font-size: 1.2rem;
+    }
+
+    .search-container {
+        max-width: 40rem;
+        min-width: 15rem;
+        margin: .75rem auto;
+    }
+
+    .search-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .search-container #resultSearchBook {
+        font-size: 1rem;
+    }
+
+    main .header-content-book {
+        font-size: 1.4rem;
+    }
+
+    .content-book section:first-child h2,
+    .content-book section:last-child h2 {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 1.3rem;
+        font-size: 1rem;
+    }
+}
