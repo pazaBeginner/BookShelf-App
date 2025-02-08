@@ -18,7 +18,7 @@ body {
 
 header {
     text-align: center;
-    background: url('https://github.com/pazaBeginner/BookShelf-App/tree/main/assets/images/BgBookHeader.jpg');
+    background: url('https://github.com/pazaBeginner/BookShelf-App/blob/main/assets/images/BgBookHeader.jpg');
     background-size: cover;
     filter: brightness(.85);
     background-position: center;
