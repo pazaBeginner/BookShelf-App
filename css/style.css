@@ -18,7 +18,7 @@ body {
 
 header {
     text-align: center;
-    background: url('/assets/images/BgBookHeader.jpg');
+    background: url('assets/images/BgBookHeader.jpg');
     background-size: cover;
     filter: brightness(.85);
     background-position: center;
